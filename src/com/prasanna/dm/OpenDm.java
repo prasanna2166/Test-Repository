@@ -22,26 +22,13 @@ public class OpenDm  {
 	File src = new File("C:/Users/501316/workspace/Project_demoaut/credentials.xls");
 	Workbook wb = Workbook.getWorkbook(src);
 	sh = wb.getSheet(0);
-//	int noofrows = sh.getRows(); 
-//	int noofcolm = sh.getColumns();
-//	String firstcell = sh.getCell(0,0).getContents();
-//	String secondcell = sh.getCell(1,0).getContents();
-//	String secondrow1cell = sh.getCell(0, 1).getContents();
-//	String secondrow2cell = sh.getCell(1, 1).getContents();
-//	System.out.println(noofrows);
-//	System.out.println(noofcolm);
-//	System.out.println(firstcell);
-//	System.out.println(secondcell);
-//	System.out.println(secondrow1cell);
-//	System.out.println(secondrow2cell);
-	//System.out.println(sh.getCell(1,1).getContents());
-	//Base obj = new Base();
 	
 	Base.start();
 	Base.launch(sh);
 	TicketBooking.booking1();
 	SelectFlight.select();
 	System.out.println("End launch");
+	Reviewpage.verify();
 	Thread.sleep(5000);
 	Base.driver.close();
 }	
