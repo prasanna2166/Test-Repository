@@ -22,7 +22,7 @@ public class TicketBooking extends Base {
 		 Sheet sh = workbook.getSheet(1);
 		 
 		 // TYPE
-		List<WebElement> type = driver.findElements(By.name("tripType")); // get all the values and store it in type
+		List<WebElement> type = driver.findElements(By.name(sh.getCell(0,0).getContents())); // get all the values and store it in type
 		int listlength = type.size();  // find the size of type(total number of radio values)
 //		System.out.println(listlength);
 //		System.out.println(actualTypeValue);
@@ -44,26 +44,26 @@ public class TicketBooking extends Base {
 		
 		
 		//PASSENGERS
-		Select passengers = new Select(driver.findElement(By.name("passCount")));
+		Select passengers = new Select(driver.findElement(By.name(sh.getCell(1,0).getContents())));
 		String actualPassengervalue = sh.getCell(1,1).getContents();
 		passengers.selectByValue(actualPassengervalue);
 		//PASSENGERS
 
 		//Departing
-		Select departing = new Select(driver.findElement(By.name("fromPort")));
+		Select departing = new Select(driver.findElement(By.name(sh.getCell(2,0).getContents())));
 		String actualdepartingvalue = sh.getCell(2,1).getContents();
 		departing.selectByValue(actualdepartingvalue);
 		//Departing
 	
 		
 		//Arrival
-		Select arrival = new Select(driver.findElement(By.name("toPort")));
+		Select arrival = new Select(driver.findElement(By.name(sh.getCell(3,0).getContents())));
 		String actualarrivalvalue = sh.getCell(3,1).getContents();
 		arrival.selectByValue(actualarrivalvalue);
 		//Arrival
 		
 		//Service Class
-		List<WebElement> serclass = driver.findElements(By.name("servClass"));
+		List<WebElement> serclass = driver.findElements(By.name(sh.getCell(4,0).getContents()));
 		int serclassleng = serclass.size();
 		System.out.println(serclassleng);
 		String actualserclassvalue = sh.getCell(4,1).getContents();
@@ -78,14 +78,14 @@ public class TicketBooking extends Base {
 		//Service Class
 		
 		// Airline
-		Select airline = new Select(driver.findElement(By.name("airline")));
+		Select airline = new Select(driver.findElement(By.name(sh.getCell(5,0).getContents())));
 		String airlinevalue = sh.getCell(5,1).getContents();
 		airline.selectByVisibleText(airlinevalue);
 		// Airline
 		
 		// Click on Submit button
-		driver.findElement(By.name("findFlights")).click();
-		
+		driver.findElement(By.name(sh.getCell(5,0).getContents())).click();
+
 		
 	}
 	

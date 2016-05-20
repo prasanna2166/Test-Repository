@@ -26,9 +26,9 @@ public class Base {
 	{
 	System.out.println("started launch");	
 	driver.get("http://newtours.demoaut.com/");
-	driver.findElement(By.name("userName")).sendKeys(sh.getCell(0,0).getContents());
-	driver.findElement(By.name("password")).sendKeys(sh.getCell(1,0).getContents());
-	driver.findElement(By.name("login")).click();
+	driver.findElement(By.name(sh.getCell(0,0).getContents())).sendKeys(sh.getCell(0,1).getContents());
+	driver.findElement(By.name(sh.getCell(1,0).getContents())).sendKeys(sh.getCell(1,1).getContents());
+	driver.findElement(By.name(sh.getCell(2,0).getContents())).click();
 //	TicketBooking.booking1();
 //	System.out.println("End launch");
 //	Thread.sleep(5000);
