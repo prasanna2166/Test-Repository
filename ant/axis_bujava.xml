@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<project name="Duckcreek_Automation" default="App_Server" basedir=".">
+	
+	<property name="App_Server_Directory" value="Deployment/"/>
+	<property name="Web_Server_Directory" value="Deployment/"/>
+	<property name="exclude_dir" value="Express" />
+	
+	<target name="App_Server" description="Creates package for App_Server">
+	  	 <zip destfile="${App_Server_Directory}/App_Server.zip" basedir="." excludes="Express/**,build.xml" />	
+	</target>
+
+	<target name="Web_Server" description="Creates package for Web_Server">
+		  <zip destfile="${Web_Server_Directory}/Web_Server.zip" basedir="." includes="Express/**"/>	
+	</target>
+  
+</project>
+
